@@ -1,0 +1,19 @@
+%h2= "Edit #{@movie.title} movie"
+
+= form_tag movie_path(@movie), :method => :put do # verb: put, uri: /movies/:id
+
+  = label :movie, :title
+  = text_field :movie, :title
+
+  = label :movie, :rating
+  = select :movie, :rating, @all_ratings
+
+  = label :movie, :release_date, 'Released On'
+  = date_select :movie, :release_date
+
+  = label :movie, :description
+  = text_field :movie, :description
+
+  = submit_tag
+
+= link_to "Cancel", @movie
